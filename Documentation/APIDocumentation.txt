@@ -1,0 +1,94 @@
+This API documentation provides detailed information about the endpoints, request/response formats, and parameters for the Video File Management API.
+Base URL
+The base URL for all API endpoints is: http://localhost:5000/api
+Authentication
+Currently, this API does not require authentication.
+Endpoints
+
+Create a new product
+
+Endpoint: POST /Products
+Request Body:
+json{
+  "name": "Product Name"
+}
+
+Response:
+
+Status Code: 201 (Created)
+Body:
+json{
+  "id": 1,
+  "name": "Product Name"
+}
+
+
+
+
+
+Get a product by ID
+
+Endpoint: GET /Products/{id}
+Response:
+
+Status Code: 200 (OK)
+Body:
+json{
+  "id": 1,
+  "name": "Product Name"
+}
+
+
+
+
+
+Upload a video file for a product
+
+Endpoint: POST /VideoFiles/{productId}
+Request Body: Form data with a file field named file
+Response:
+
+Status Code: 200 (OK)
+
+
+
+
+Get video files for a product
+
+Endpoint: GET /VideoFiles/{productId}
+Response:
+
+Status Code: 200 (OK)
+Body:
+json[
+  {
+    "id": 1,
+    "productId": 1,
+    "fileName": "video1.mp4",
+    "filePath": "/path/to/video1.mp4"
+  },
+  {
+    "id": 2,
+    "productId": 1,
+    "fileName": "video2.mp4",
+    "filePath": "/path/to/video2.mp4"
+  }
+]
+
+
+
+
+
+Delete a video file for a product
+
+Endpoint: DELETE /VideoFiles/{productId}/{videoFileId}
+Response:
+
+Status Code: 200 (OK)
+
+
+
+
+
+Error Handling
+If an error occurs during the request processing, the API will respond with an appropriate HTTP status code and an error message in the response body.
